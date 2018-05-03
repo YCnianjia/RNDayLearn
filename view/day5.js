@@ -16,12 +16,12 @@ export class Map extends Component{
       followUserLocation: false,
   }; 
 
-  static propTypes = {
-      mapType: React.PropTypes.oneOf(['standard', 'satellite','hybrid']),
-      // mapStyle: View.PropTypes.style,
-      showsUserLocation: React.PropTypes.bool.isRequired,
-      followUserLocation: React.PropTypes.bool.isRequired,
-  };
+  // static propTypes = {
+  //     mapType: React.PropTypes.oneOf(['standard', 'satellite','hybrid']),
+  //     // mapStyle: View.PropTypes.style,
+  //     showsUserLocation: React.PropTypes.bool.isRequired,
+  //     followUserLocation: React.PropTypes.bool.isRequired,
+  // };
 
   constructor() {
     super();

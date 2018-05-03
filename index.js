@@ -11,14 +11,14 @@ import {AppRegistry, DeviceEventEmitter, Image, Navigator, ScrollView, StatusBar
 // import Icon from 'react-native-vector-icons/Ionicons';
 // import IconFA from 'react-native-vector-icons/FontAwesome';
 // import Swiper from 'react-native-swiper';
-https://blog.csdn.net/haoranli/article/details/71774500
+// https://blog.csdn.net/haoranli/article/details/71774500
 
 import Day1 from './view/day1'; //bug when not stop then exit
 import Day2 from './view/day2';
 import Day3 from './view/day3';
-// import Day4 from './view/day4'; //to update to groupon
-// import Day5 from './view/day5';
-// import Day6 from './view/day6'; //to update; RN video bug
+import Day4 from './view/day4'; //to update to groupon
+import Day5 from './view/day5';
+import Day6 from './view/day6'; //to update; RN video bug
 // import Day7 from './view/day7';
 // import Day8 from './view/day8';  //update animation
 // import Day9 from './view/day9';
@@ -602,7 +602,10 @@ class MyScene extends Component{
     days = [
       {title: 'Day1', component: Day1},
       {title: 'Day2', component: Day2},
-      {title: 'Day3', component: Day3}
+      {title: 'Day3', component: Day3},
+      {title: 'Day4', component: Day4},
+      {title: 'Day5', component: Day5},
+      {title: 'Day6', component: Day6},
     ]
 
     // alert("NavigatorIOS")
@@ -621,6 +624,9 @@ class MyScene extends Component{
         <Text onPress={()=> this._jumpToDay(0)} >day1</Text>
         <Text onPress={()=> this._jumpToDay(1)} >day2</Text>
         <Text onPress={()=> this._jumpToDay(2)} >day3</Text>
+        <Text onPress={()=> this._jumpToDay(3)} >day4(没有实现)</Text>
+        <Text onPress={()=> this._jumpToDay(4)} >day5(MapView这个狗逼不能用啦)</Text>
+        <Text onPress={()=> this._jumpToDay(5)} >day6</Text>
       </ScrollView>
     )
   }
