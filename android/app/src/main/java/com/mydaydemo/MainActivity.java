@@ -1,6 +1,7 @@
 package com.mydaydemo;
 
 import com.facebook.react.ReactActivity;
+import fr.greweb.rnwebgl.RNWebGLPackage;
 import com.brentvatne.react.ReactVideoPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 

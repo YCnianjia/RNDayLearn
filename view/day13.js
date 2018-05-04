@@ -14,9 +14,9 @@ class FunctionView extends Component{
     numOfText: 140,
   };
 
-  static propTypes = {
-    numOfText: React.PropTypes.number.isRequired,
-  };
+  // static propTypes = {
+  //   numOfText: React.PropTypes.number.isRequired,
+  // };
 
   constructor() {
     super();

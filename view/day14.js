@@ -14,12 +14,12 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import SwipeCards from 'react-native-swipe-cards';
 
 class Card extends Component{
-  static propTypes = {
-    top: React.PropTypes.number.isRequired,
-    left: React.PropTypes.number.isRequired,
-    width: React.PropTypes.number.isRequired,
-    img: React.PropTypes.string.isRequired,
-  };
+  // static propTypes = {
+  //   top: React.PropTypes.number.isRequired,
+  //   left: React.PropTypes.number.isRequired,
+  //   width: React.PropTypes.number.isRequired,
+  //   img: React.PropTypes.string.isRequired,
+  // };
 
   render(){
     return(
@@ -46,12 +46,12 @@ class Card extends Component{
 }
 
 class SCard extends Component{
-  static propTypes = {
-    id: React.PropTypes.string.isRequired,
-    top: React.PropTypes.number.isRequired,
-    width: React.PropTypes.number.isRequired,
-    img: React.PropTypes.string.isRequired,
-  };
+  // static propTypes = {
+  //   id: React.PropTypes.string.isRequired,
+  //   top: React.PropTypes.number.isRequired,
+  //   width: React.PropTypes.number.isRequired,
+  //   img: React.PropTypes.string.isRequired,
+  // };
 
   render(){
     return(

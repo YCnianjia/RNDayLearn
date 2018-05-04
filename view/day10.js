@@ -5,9 +5,8 @@
 'use strict';
 
 import React,{ Component } from 'react';
-import { Image,StyleSheet,Text,TouchableWithoutFeedback,TouchableHighlight,StatusBar,Animated,Easing,View } from 'react-native';
+import { Image,StyleSheet,Text,TouchableWithoutFeedback,TouchableHighlight,StatusBar,Animated,Easing,View,ImageBackground } from 'react-native';
 import Util from './utils';
-// import {BlurView} from 'react-native-blur';
 
 export default class extends Component{
   constructor() {
@@ -58,38 +57,40 @@ export default class extends Component{
     return(
       <View style={{backgroundColor:"#37465c"}}>
         <TouchableWithoutFeedback style={styles.imgContainer} onPress={() => this._pushMenu()}>
-          <Image source={{uri:'tumblr'}} style={styles.img}></Image>
+          <Image source={require('./img/tumblr.png')} style={styles.img}></Image>
         </TouchableWithoutFeedback>
         {this.state.show?
-        <Image source={{uri:'tumblrblur'}} style={styles.menu}>
+        <ImageBackground source={require('./img/tumblrblur.png')} style={styles.menu}>
             <Animated.View style={[styles.menuItem1,{left:this.state.shift}]}>
-              <Image style={styles.menuImg} source={{uri:'tumblr-text'}}></Image>
+              <Image style={styles.menuImg} source={require('./img/tumblr-text.png')}></Image>
               <Text style={styles.menuText}>Text</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem2,{right:this.state.shift}]}>
-              <Image style={styles.menuImg} source={{uri:'tumblr-photo'}}></Image>
+              <Image style={styles.menuImg} source={require('./img/tumblr-photo.png')}></Image>
               <Text style={styles.menuText}>Photo</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem3,{left:this.state.shift}]}>
-              <Image style={styles.menuImg} source={{uri:'tumblr-quote'}}></Image>
+              <Image style={styles.menuImg} source={require('./img/tumblr-quote.png')}></Image>
               <Text style={styles.menuText}>Quote</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem4,{right:this.state.shift}]}>
-              <Image style={styles.menuImg} source={{uri:'tumblr-link'}}></Image>
+              <Image style={styles.menuImg} source={require('./img/tumblr-link.png')}></Image>
               <Text style={styles.menuText}>Link</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem5,{left:this.state.shift}]}>
-              <Image style={styles.menuImg} source={{uri:'tumblr-chat'}}></Image>
+              <Image style={styles.menuImg} source={require('./img/tumblr-chat.png')}></Image>
               <Text style={styles.menuText}>Chat</Text>
             </Animated.View>
             <Animated.View style={[styles.menuItem6,{right:this.state.shift}]}>
-              <Image style={styles.menuImg} source={{uri:'tumblr-audio'}}></Image>
+              <Image style={styles.menuImg} source={require('./img/tumblr-audio.png')}></Image>
               <Text style={styles.menuText}>Audio</Text>
             </Animated.View>
+
             <TouchableHighlight underlayColor="rgba(0,0,0,0)" activeOpacity={0} style={styles.dismissBtn} onPress={() => this._popMenu()}>
               <Text style={styles.dismiss}>NeverMind</Text>
             </TouchableHighlight>
-          </Image>:
+            
+          </ImageBackground>:
           <View></View>
         }
       </View>

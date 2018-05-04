@@ -19,9 +19,8 @@ class TwitterUser extends Component{
       bannerTop:0,
       opacity:0,
 		};
-	}
-
-  _scrollEnabled = false;
+  }
+  
 	_previousTop = 0;
   _iconTop = 95;
   _scale = 1;
@@ -29,7 +28,7 @@ class TwitterUser extends Component{
   _opacity = 0;
 	_minTop = -192;
 	_userStyle = {};
-  user = (null : ?{ setNativeProps(props: Object): void });
+  // user = (null : ?{ setNativeProps(props: Object): void });
 
   _updatePosition() {
 	   this.user && this.user.setNativeProps(this._userStyles);
@@ -50,12 +49,14 @@ class TwitterUser extends Component{
 	       
 	    },
 	    onPanResponderMove: (evt, gestureState) => {
+        
+        //手势处理
        	this._userStyles.style.top = this._previousTop + gestureState.dy;
         this._scale = 1+this._userStyles.style.top/162.5;
         this._iconTop = 95 - this._userStyles.style.top/4.16;
         this._bannerTop = 0;
         this._opacity = 0;
-        // this._scrollEnabled = false;
+
         if (this._userStyles.style.top< -62.5) {
           this._scale = 0.6;
           this._iconTop = 110;
@@ -71,11 +72,9 @@ class TwitterUser extends Component{
        		this._userStyles.style.top = this._minTop;
           this._opacity = 1;
           this._bannerTop = 129.5;
-          // this._scrollEnabled = true;
        	};
 
         this.setState({
-          // scrollEnabled: this._scrollEnabled,
           scale: this._scale,
           iconTop: this._iconTop,
           bannerTop: this._bannerTop,
@@ -106,9 +105,13 @@ class TwitterUser extends Component{
 		let panProps = this.state.scrollEnabled?{}:{...this._panResponder.panHandlers};
 		return(
 			<View ref={(user) => {this.user = user;}} style={styles.userContainer} {...panProps}>
+        {/* 用户信息面板 */}
 				<View style={styles.userPanel}>
-          <Image style={[styles.banner,{top: this.state.bannerTop}]} source={{uri:'banner'}}></Image>
-          <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}]}><Image style={styles.icon} source={{uri:"icon"}}></Image></View>
+          {/* 顶部的图片 */}
+          <Image style={[styles.banner,{top: this.state.bannerTop}]}></Image>
+          {/* 头像 */}
+          <View style={[styles.iconContainer,{top:this.state.iconTop,transform:[{scale:this.state.scale}]}]}><Image style={styles.icon}></Image></View>
+          {/* 设置、人群、编辑个人资料那一堆 */}
           <View style={styles.userControl}>
             <TouchableHighlight style={styles.controlIcon}>
               <Icon name="ios-settings" color="#8999a5" size={20}></Icon>
@@ -120,6 +123,7 @@ class TwitterUser extends Component{
               <Text style={styles.controlBtnText}>编辑个人资料</Text>
             </TouchableHighlight>
           </View>
+          {/* 个人信息那一块 */}
           <View style={styles.userInfo}>
             <Text style={styles.userInfoName}>Github</Text>
             <Text style={styles.userInfoAccount}>@Github</Text>
@@ -128,16 +132,23 @@ class TwitterUser extends Component{
               <Text style={styles.userInfoFollower}><Text style={styles.fontEm}>830k</Text> 关注者</Text>
             </View>
           </View>
-          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop}]} source={{uri:'banner'}}></Image>}
-          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop, opacity:this.state.opacity}]} source={{uri:'bannerBlur'}}></Image>}
+
+          {/* 根据偏移位置设置banner位的样式 */}
+          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop}]}></Image>}
+          {this.state.bannerTop<=0?<View></View>:<Image style={[styles.banner,{top: this.state.bannerTop, opacity:this.state.opacity}]}></Image>}
+
+          {/* 靠上偏移时显示用户名 */}
           <Text style={{position:"absolute",left:Util.size.width/2-30, fontSize:20, fontWeight:"500", top: this.state.bannerTop+90,opacity:this.state.opacity, backgroundColor:"transparent", color:"#fff"}}>Github</Text>
+
+          {/*  */}
           <View style={styles.segment}>
             <SegmentedControlIOS values={['推文', '媒体', '喜欢']}  selectedIndex={0} tintColor="#2aa2ef"/>
           </View>
 				</View>
+
 				<ScrollView contentInset={{top:0}} style={styles.detailScroll} scrollEnabled={this.state.scrollEnabled}>
 					<View style={{width:Util.size.width,backgroundColor:"#f5f8fa"}}>
-            <Image style={{width:Util.size.width, height:0.835*Util.size.width, resizeMode:"contain"}} source={{uri:'moreinfo'}}></Image>
+            <Image style={{width:Util.size.width, height:0.835*Util.size.width, resizeMode:"contain"}}></Image>
           </View>
 				</ScrollView>
 			</View>
@@ -172,6 +183,7 @@ class TwitterTab extends Component{
         selected={ this.state.selectedTab === '主页' }>
           <TwitterUser/>
         </Icon.TabBarItem>
+
         <Icon.TabBarItem
         title="通知"
         iconName="ios-notifications-outline"
@@ -180,6 +192,7 @@ class TwitterTab extends Component{
         selected={ this.state.selectedTab === '通知'}>
           <TwitterUser/>
         </Icon.TabBarItem>
+
         <Icon.TabBarItem
         title="私信"
         iconName="ios-mail-outline"
@@ -188,6 +201,7 @@ class TwitterTab extends Component{
         selected={ this.state.selectedTab === '私信'}>
           <TwitterUser/>
         </Icon.TabBarItem>
+        
         <Icon.TabBarItem
         title="我"
         iconName="ios-person-outline"
@@ -244,14 +258,16 @@ const styles = StyleSheet.create({
 	},
 	userPanel:{
 		flex:1,
-		height:300,
+    height:300,
+    backgroundColor: 'yellow'
 	},
 	banner:{
 		width: Util.size.width,
 		height:125,
 		position:"absolute",
 		top:0,
-		left:0
+    left:0,
+    backgroundColor: 'red',
 	},
   iconContainer:{
     position:"absolute",
@@ -260,6 +276,7 @@ const styles = StyleSheet.create({
     borderWidth:5,
     borderColor:"#fff",
     borderRadius:5,
+    backgroundColor: 'black'
   },
   icon:{
     width:68,
@@ -306,9 +323,9 @@ const styles = StyleSheet.create({
     width: Util.size.width,
     position:"absolute",
     top: 165,
-    paddingTop:15, paddingLeft:15, paddingBottom:15,
     left:0,
     height:90,
+    paddingTop:15, paddingLeft:15, paddingBottom:15,
   },
   userInfoName:{
     color:"#292f33",

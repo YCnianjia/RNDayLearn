@@ -50,15 +50,15 @@ class MinePage extends Component{
   }
 }
 
-var FacebookTabBar = React.createClass({
-  selectedTabIcons: [],
-  unselectedTabIcons: [],
+class  FacebookTabBar extends Component{
+  // selectedTabIcons: [],
+  // unselectedTabIcons: [],
 
-  propTypes: {
-    goToPage: React.PropTypes.func,
-    activeTab: React.PropTypes.number,
-    tabs: React.PropTypes.array
-  },
+  // propTypes: {
+  //   goToPage: React.PropTypes.func,
+  //   activeTab: React.PropTypes.number,
+  //   tabs: React.PropTypes.array
+  // },
 
   renderTabOption(name, page) {
     var isTabActive = this.props.activeTab === page;
@@ -71,12 +71,12 @@ var FacebookTabBar = React.createClass({
               ref={(icon) => { this.unselectedTabIcons[page] = icon }}/>
       </TouchableOpacity>
     );
-  },
+  }
 
   componentDidMount() {
     this.setAnimationValue({value: this.props.activeTab});
     this._listener = this.props.scrollValue.addListener(this.setAnimationValue);
-  },
+  }
 
   setAnimationValue({value}) {
     var currentPage = this.props.activeTab;
@@ -95,7 +95,7 @@ var FacebookTabBar = React.createClass({
         iconRef.setNativeProps({ style: {opacity: i - value} });
       }
     });
-  },
+  }
 
   render() {
     var containerWidth = this.props.containerWidth;
@@ -120,8 +120,11 @@ var FacebookTabBar = React.createClass({
         <Animated.View style={[tabUnderlineStyle, {left}]} />
       </View>
     );
-  },
-});
+  }
+}
+
+// var FacebookTabBar = React.createClass({
+// });
 
 export default class extends Component{
   constructor() {

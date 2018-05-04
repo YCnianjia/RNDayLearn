@@ -97,7 +97,8 @@ export default class extends Component{
 const styles = StyleSheet.create({
   container:{
     height:Util.size.height,
-    width:Util.size.width
+    width:Util.size.width,
+    backgroundColor: 'red',
   },
   backgroundFixed: {
     position: 'absolute',

@@ -96,8 +96,8 @@ export default class extends Component{
   //   },
   // };
   _CustomLayoutLinear = LayoutAnimation.Presets.linear;
-  menu = (null : ?{ setNativeProps(props: Object): void });
-  drop = (null : ?{ setNativeProps(props: Object): void });
+  // menu = (null : ?{ setNativeProps(props: Object): void });
+  // drop = (null : ?{ setNativeProps(props: Object): void });
 
   _updatePosition() {
     this.menu && this.menu.setNativeProps(this._menuStyles);

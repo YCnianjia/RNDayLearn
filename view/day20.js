@@ -20,10 +20,10 @@ export class ReminderContainer extends Component{
     },
   };
 
-  static propTypes = {
-    listData: React.PropTypes.object,
-    switch: React.PropTypes.func,
-  };
+  // static propTypes = {
+  //   listData: React.PropTypes.object,
+  //   switch: React.PropTypes.func,
+  // };
 
   constructor(props) {
     super(props);

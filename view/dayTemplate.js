@@ -11,7 +11,9 @@ import Util from './utils';
 export default class extends Component{
   render() {
     return(
-      <View></View>
+      <View style = {{alignItems: 'center', justifyContent:'center', flex:1, backgroundColor: 'white'}}>
+        <Text>有问题或没有实现的Demo</Text>
+      </View>
     )
   }
 }
