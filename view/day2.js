@@ -411,12 +411,12 @@ const styles = StyleSheet.create({
     paddingTop:5
   },
   withinWeekLine:{
-    flexDirection:"row",
+    flexDirection:"row", //子元素是应该沿着水平轴(row)方向排列，还是沿着竖直轴(column)方向排列呢？默认值是竖直轴(column)方向。
     height: 28
   },
   withinWeekDay:{
-    justifyContent:"center", //主轴 （和排列方式同向）
-    alignItems:"flex-start", //次轴 
+    justifyContent:"center", //主轴 (可以决定其子元素沿着主轴的排列方式)
+    alignItems:"flex-start", //次轴 (可以决定其子元素沿着次轴（与主轴垂直的轴，比如若主轴方向为row，则次轴方向为column）的排列方式)
     flex:1,
   },
   withinWeekIcon:{

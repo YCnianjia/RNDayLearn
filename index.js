@@ -170,7 +170,7 @@ class MainView extends Component {
       },{
         key:13,
         title:"tinder",
-        component: Day10,
+        component: Temp,
         isFA: true,
         icon: "fire",
         size:50,

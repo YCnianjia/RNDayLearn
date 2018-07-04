@@ -175,6 +175,7 @@ class TwitterTab extends Component{
       <TabBarIOS
         barTintColor="#fff"
         tintColor="#1b95e0">
+        
         <Icon.TabBarItem
         title="主页"
         iconName="ios-home-outline"
